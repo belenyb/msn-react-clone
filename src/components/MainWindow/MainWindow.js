@@ -3,7 +3,7 @@ import Draggable from "react-draggable";
 import LoginWindowToolbar from './MainWindowToolbar';
 import LoginWindowLoading from './MainWindowLoading';
 import MainWindowNotLogged from './MainWindowNotLogged';
-import MainWindowLogged from './MainWindowLogged';
+import MainWindowLogged from './MainWindowLogged/MainWindowLogged';
 import "./MainWindow.css";
 
 const LoginWindow = ({ onClose }) => {

@@ -1,0 +1,25 @@
+.logged-window-header {
+  background: linear-gradient(180deg, #afced2 0%, #EBF2EB 30%, #FDFFFB 100%);
+  box-shadow: 2px 2px 4px 0px #b9b9b9;
+  border: 1px solid #b9b9b9;
+}
+
+.logged-window-body {
+  box-shadow: 2px 2px 4px 0px #b9b9b9;
+  border: 1px solid #b9b9b9;
+}
+
+input[type="search"] {
+  font-size: 12px;
+  border: 1px solid #b9b9b9;
+}
+
+input[type="search"]::placeholder {
+  color: rgb(155, 155, 155);
+}
+
+summary {
+  font-size: 12px;
+  -webkit-user-select: none;
+  user-select: none;
+}

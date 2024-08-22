@@ -1,11 +1,11 @@
-import LoginWindow from './components/LoginWindow';
+import LoginWindow from './components/MainWindow/MainWindow';
 import React, { useState } from 'react';
 import './App.css';
 
 function App() {
   const [showLoginWindow, setShowLoginWindow] = useState(false);
 
-  const toggleLoginWindow = (isVisible) => {
+  function toggleLoginWindow (isVisible) {
     setShowLoginWindow(isVisible);
   };
 

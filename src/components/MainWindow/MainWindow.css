@@ -1,10 +1,13 @@
 .login-window {
   width: 300px;
   height: 550px;
-  background: linear-gradient(180deg, #073D7D 0%, #3983A6 8%, #8DBBBB 15%, #EBF3F6 25%);
   border-radius: 6px;
   border-inline: 1rem solid rgb(164, 164, 164);
   border: 1px solid gray;
+}
+
+.login-window {
+  background: linear-gradient(180deg, #073D7D 0%, #3983A6 8%, #8DBBBB 15%, #ecf5f8 25%);
 }
 
 .login-window span {
@@ -19,10 +22,11 @@
   font-size: 12px;
 }
 
-.login-window form button {
+.login-window button {
   background: linear-gradient(0deg, #D4E8F1 0%, #E1E8EE 75%);
   border: 1px solid #b1b1b16b;
   box-shadow: inset 0px -1px #8d8d8d;
+  font-size: 12px;
 }
 
 .login-window .links span {

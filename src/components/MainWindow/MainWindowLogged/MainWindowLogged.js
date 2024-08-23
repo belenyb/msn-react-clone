@@ -45,7 +45,7 @@ const MainWindowLogged = ({ toggleChatWindow }) => {
               <summary className='fw-bold'>Online (5)</summary>
               <div className="d-flex gap-1" role="button" onDoubleClick={toggleChatWindow}>
                 <img src="/images/user-online.png" alt="User icon" width={16} />
-                <span>Chat GPT - <span className='text-secondary'>Ask me anything</span></span>
+                <span>Gemini - <span className='text-secondary'>Ask me anything</span></span>
               </div>
               <div className="d-flex gap-1" role="button">
                 <img src="/images/user-online.png" alt="User icon" width={16} />

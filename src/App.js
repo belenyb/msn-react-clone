@@ -3,15 +3,16 @@ import MainWindow from './components/MainWindow/MainWindow';
 import ChatWindow from './components/ChatWindow/ChatWindow';
 import './App.css';
 
+
 function App() {
   const [showLoginWindow, setShowLoginWindow] = useState(false);
   const [showChatWindow, setShowChatWindow] = useState(false);
 
-  function toggleLoginWindow (isVisible) {
+  function toggleLoginWindow(isVisible) {
     setShowLoginWindow(isVisible);
   };
 
-  function toggleChatWindow (isVisible) {
+  function toggleChatWindow(isVisible) {
     setShowChatWindow(isVisible);
   }
 
@@ -27,9 +28,9 @@ function App() {
           <span className='text-white text-center lh-1'>Windows Live <br /> Messenger</span>
         </div>
       </div>
-        {showLoginWindow && <MainWindow onClose={() => toggleLoginWindow(false)} toggleChatWindow={() => toggleChatWindow(true)} />}
+      {showLoginWindow && <MainWindow onClose={() => toggleLoginWindow(false)} toggleChatWindow={() => toggleChatWindow(true)} />}
       <div>
-        {showChatWindow && <ChatWindow onClose={() => toggleChatWindow(false)} /> }
+        {showChatWindow && <ChatWindow onClose={() => toggleChatWindow(false)} />}
       </div>
     </div>
   );

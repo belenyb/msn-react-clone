@@ -1,6 +1,7 @@
-import React from 'react';
+import { React, useState } from 'react';
 import Draggable from "react-draggable";
 import './ChatWindow.css';
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 function ChatWindow({ onClose }) {
   const emojiList = Array.from({ length: 32 }, (_, index) => (
@@ -17,6 +18,37 @@ function ChatWindow({ onClose }) {
     chatWindow.classList.add('shake');
     audio.play();
   };
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [chatHistory, setChatHistory] = useState([]);
+  const [message, setMessage] = useState('');
+
+  // Google AI Studio
+  const API_KEY = "AIzaSyAB1yTtnClkBGP8wP2iSxnmYDEj_Z0cTBg";
+  const genAI = new GoogleGenerativeAI(API_KEY);
+  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+
+  async function askGemini() {
+    setIsLoading(true);
+    try {
+      const prompt = message;
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+      const text = response.text();
+      setChatHistory(prevChatHistory => [
+        ...prevChatHistory,
+        { type: "user", message: prompt },
+        { type: "bot", message: text }
+      ]);
+      console.log(chatHistory);
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setMessage('');
+      setIsLoading(false);
+    }
+  }
+
   return (
     <Draggable handle=".handle">
       <div className='chat-window position-relative' id="chatWindow">
@@ -24,7 +56,7 @@ function ChatWindow({ onClose }) {
           <div className='d-flex align-items-center'>
             <img src="/images/user-online.png" alt="Online user icon" width="35" className="p-1" />
             <div className='d-grid'>
-              <span className="ps-1 fw-bold lh-1">Chat GPT</span>
+              <span className="ps-1 fw-bold lh-1">Gemini</span>
               <span className="ps-1 lh-1">Ask me anything</span>
             </div>
           </div>
@@ -49,7 +81,13 @@ function ChatWindow({ onClose }) {
           <img role="button" src="./images/games.png" alt="Icon" width="20" />
           <img role="button" src="./images/user-blocked.png" alt="Icon" width="20" />
         </div>
-        <div className="mx-2 messages-block white-box">
+        <div className="mx-2 messages-block white-box d-flex flex-column pt-1 overflow-auto">
+          {chatHistory.map((chat, index) => (
+            <div key={index} className='mb-2 px-2'>
+              <p className='m-0 fw-bold message-user'> {chat.type === "bot" ? "Gemini says: " : "belenyb says: "} </p>
+              <p className={`m-0 message ${chat.type}`}> {chat.message} </p>
+            </div>
+          ))}
         </div>
         <div className="d-flex justify-content-center mb-2">
           <span className='fw-bolder'>. . . . . . . . </span>
@@ -74,13 +112,19 @@ function ChatWindow({ onClose }) {
             </div>
           </div>
           <div className="px-2 d-flex chat-box">
-            <textarea name="" id="" className='w-100 my-1'></textarea>
+            <textarea
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              className='w-100 my-1'
+            ></textarea>
             <div className="d-grid gap-1 ps-1 py-1">
-              <button type='button'>Send</button>
+              <button onClick={askGemini} type='button'>Send</button>
               <button type='button'>Search</button>
             </div>
           </div>
-          <div className="chat-box-toolbar"><p></p></div>
+          <div className="chat-box-toolbar">
+            <p className='is-writing-label m-0'> { isLoading ? "Gemini is writing..." : "" } </p>
+          </div>
         </div>
         <div className='position-absolute bottom-0'>
           <img src="/favicon.ico" alt="Windows Live Messenger icon" width="25" className="p-1" />

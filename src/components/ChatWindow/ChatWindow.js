@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useRef, useEffect } from 'react';
 import Draggable from "react-draggable";
 import './ChatWindow.css';
 import { GoogleGenerativeAI } from "@google/generative-ai";
@@ -28,6 +28,17 @@ function ChatWindow({ onClose }) {
   const genAI = new GoogleGenerativeAI(API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
+  // Scroll to bottom after render
+  const messagesEndRef = useRef(null)
+
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  useEffect(() => {
+    scrollToBottom()
+  }, [chatHistory]);
+
   async function askGemini() {
     setIsLoading(true);
     try {
@@ -40,7 +51,6 @@ function ChatWindow({ onClose }) {
         { type: "user", message: prompt },
         { type: "bot", message: text }
       ]);
-      console.log(chatHistory);
     } catch (error) {
       console.log(error);
     } finally {
@@ -88,6 +98,7 @@ function ChatWindow({ onClose }) {
               <p className={`m-0 message ${chat.type}`}> {chat.message} </p>
             </div>
           ))}
+          <div ref={messagesEndRef} />
         </div>
         <div className="d-flex justify-content-center mb-2">
           <span className='fw-bolder'>. . . . . . . . </span>
@@ -115,6 +126,12 @@ function ChatWindow({ onClose }) {
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  askGemini();
+                }
+              }}
               className='w-100 my-1'
             ></textarea>
             <div className="d-grid gap-1 ps-1 py-1">
@@ -123,7 +140,7 @@ function ChatWindow({ onClose }) {
             </div>
           </div>
           <div className="chat-box-toolbar">
-            <p className='is-writing-label m-0'> { isLoading ? "Gemini is writing..." : "" } </p>
+            <p className='is-writing-label m-0'> {isLoading ? "Gemini is writing..." : "‎ "} </p>
           </div>
         </div>
         <div className='position-absolute bottom-0'>

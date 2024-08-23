@@ -49,7 +49,7 @@ const MainWindowLogged = ({ toggleChatWindow }) => {
               </div>
               <div className="d-flex gap-1" role="button">
                 <img src="/images/user-online.png" alt="User icon" width={16} />
-                <span>Panchito - <span className='text-secondary'>Music for life</span></span>
+                <span>Oº°‘¨PanchitO¨‘°ºO - <span className='text-secondary'>Music for life <img src="/images/emojis/29.png" alt="Music icon" width={10} /></span></span>
               </div>
               <div className="d-flex gap-1" role="button">
                 <img src="/images/user-away.png" alt="User icon" width={16} />
@@ -57,11 +57,11 @@ const MainWindowLogged = ({ toggleChatWindow }) => {
               </div>
               <div className="d-flex gap-1" role="button">
                 <img src="/images/user-online.png" alt="User icon" width={16} />
-                <span>Marina - <span className='text-secondary'>I don't wanna miss a thing</span></span>
+                <span>Marina - <span className='text-secondary'>ι ∂σи-т ωαииα мιѕѕ α тнιиg</span></span>
               </div>
               <div className="d-flex gap-1" role="button">
                 <img src="/images/user-online.png" alt="User icon" width={16} />
-                <span>MKZ_00 - <span className='text-secondary'>Boreeeed</span></span>
+                <span>MKZ_00 - <span className='text-secondary'>Boreeeed <img src="/images/emojis/22.png" alt="Music icon" width={10} /></span></span>
               </div>
               <div className="d-flex gap-1" role="button">
                 <img src="/images/user-blocked.png" alt="User icon" width={16} />
@@ -77,7 +77,7 @@ const MainWindowLogged = ({ toggleChatWindow }) => {
               </div>
               <div className="d-flex gap-1" role="button">
                 <img src="/images/user-invisible.png" alt="User icon" width={16} />
-                <span>007-ban - <span className='text-secondary'>No worries</span></span>
+                <span>(¯`·._.·[007-ban]·._.·´¯) - <span className='text-secondary'>No worries</span></span>
               </div>
             </details>
           </div>

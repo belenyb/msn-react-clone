@@ -22,13 +22,6 @@
   font-size: 12px;
 }
 
-.login-window button {
-  background: linear-gradient(0deg, #D4E8F1 0%, #E1E8EE 75%);
-  border: 1px solid #b1b1b16b;
-  box-shadow: inset 0px -1px #8d8d8d;
-  font-size: 12px;
-}
-
 .login-window .links span {
   font-size: 10px;
 }

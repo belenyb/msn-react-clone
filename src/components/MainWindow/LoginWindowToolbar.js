@@ -1,4 +1,4 @@
-const LoginWindowToolbar = ({ onClose }) => {
+const WindowToolbar = ({ onClose }) => {
   return (
     <div className="d-flex justify-content-between align-items-center handle">
       <div>
@@ -21,4 +21,4 @@ const LoginWindowToolbar = ({ onClose }) => {
   );
 }
 
-export default LoginWindowToolbar;
+export default WindowToolbar;

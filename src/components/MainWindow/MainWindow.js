@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import Draggable from "react-draggable";
-import LoginWindowToolbar from './MainWindowToolbar';
+import WindowToolbar from './LoginWindowToolbar';
 import LoginWindowLoading from './MainWindowLoading';
 import MainWindowNotLogged from './MainWindowNotLogged';
 import MainWindowLogged from './MainWindowLogged/MainWindowLogged';
 import "./MainWindow.css";
 
-const LoginWindow = ({ onClose }) => {
+const MainWindow = ({ onClose, toggleChatWindow }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const handleClick = (value) => {
@@ -19,7 +19,7 @@ const LoginWindow = ({ onClose }) => {
   return (
     <Draggable handle=".handle">
       <div className={`login-window p-2 position-relative ${isLoading && "isLoading"}`}>
-        <LoginWindowToolbar onClose={onClose} />
+        <WindowToolbar onClose={onClose} />
 
         {isLoading && <LoginWindowLoading handleClick={() => handleClick(false)} />}
 
@@ -28,11 +28,11 @@ const LoginWindow = ({ onClose }) => {
         }
 
         {isLoggedIn && !isLoading &&
-          <MainWindowLogged />
+          <MainWindowLogged toggleChatWindow={toggleChatWindow} />
         }
       </div>
     </Draggable>
   );
 }
 
-export default LoginWindow;
+export default MainWindow;

@@ -1,0 +1,118 @@
+.chat-window {
+  width: 500px;
+  height: 550px;
+  border: 1px solid #848484;
+  box-shadow: inset 0px 0px 4px 1px #ddddddc2;
+  background: url(/public/images/msn-background.png), #E8F2F4;
+  background-size: cover;
+}
+
+.chat-window span {
+  font-size: 12px;
+}
+
+.chat-window .messages-block {
+  height: 300px;
+}
+
+.white-box {
+  border-radius: 4px;
+  border: 0.5px solid #b9b9b9;
+  background-color: #FFFFFF;
+}
+
+.chat-box {
+  border-radius: 4px;
+  border: 0.5px solid #b9b9b9;
+}
+
+.emojis-grid.show {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 5px;
+  list-style-type: none;
+  padding: 5px;
+  margin: 0;
+}
+
+.dropdown-toggle {
+  all: unset;
+  cursor: pointer;
+}
+
+.chat-box-toolbar {
+  background: linear-gradient(0deg, #FBFDFF, #E5ECF4, #FBFDFF);
+  border-radius: 4px;
+}
+
+textarea {
+  all: unset;
+  font-size: 12px;
+}
+
+.chat-window.shake {
+  animation: shake 0.2s ease-in-out 2;
+}
+
+@keyframes shake {
+  5% {
+    transform: translate(7px, 7px);
+  }
+  10% {
+    transform: translateY(-7px);
+  }
+  15% {
+    transform: translate(-1px, 5px);
+  }
+  20% {
+    transform: translate(-6px, 8px);
+  }
+  25% {
+    transform: translate(-5px, -7px);
+  }
+  30% {
+    transform: translate(6px, 7px);
+  }
+  35% {
+    transform: translate(9px, -6px);
+  }
+  40% {
+    transform: translate(-3px, 9px);
+  }
+  45% {
+    transform: translate(-3px, 4px);
+  }
+  50% {
+    transform: translate(-3px, 1px);
+  }
+  55% {
+    transform: translate(-8px, 3px);
+  }
+  60% {
+    transform: translate(7px, 3px);
+  }
+  65% {
+    transform: translate(-1px);
+  }
+  70% {
+    transform: translate(7px, -4px);
+  }
+  75% {
+    transform: translate(-2px, -8px);
+  }
+  80% {
+    transform: translateY(-9px);
+  }
+  85% {
+    transform: translate(-6px, 7px);
+  }
+  90% {
+    transform: translate(9px, 1px);
+  }
+  95% {
+    transform: translate(-9px, 7px);
+  }
+  100% {
+    transform: translateY(7px);
+  }
+}

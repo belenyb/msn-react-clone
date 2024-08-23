@@ -4,7 +4,7 @@
   height: 100%;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -24,4 +24,11 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+button {
+  background: linear-gradient(0deg, #D4E8F1 0%, #E1E8EE 75%);
+  border: 1px solid #b1b1b16b;
+  box-shadow: inset 0px -1px #8d8d8d;
+  font-size: 12px;
 }

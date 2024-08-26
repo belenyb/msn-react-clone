@@ -19,4 +19,4 @@ The package.json file lists the necessary dependencies for the project:
 The app leverages Gemini 1.5 Flash, a large language model developed by Google AI, to generate contextually relevant and coherent responses to user inputs. Integration is achieved through the Google AI Studio API, enabling the application to send queries to the model and receive responses in real-time.
 
 ## Vercel deployment
-Poner link
+Live demo here 👉 https://msn-react-clone.vercel.app

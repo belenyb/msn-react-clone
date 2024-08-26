@@ -3,7 +3,7 @@ import Draggable from "react-draggable";
 import WindowToolbar from './LoginWindowToolbar';
 import LoginWindowLoading from './MainWindowLoading';
 import MainWindowNotLogged from './MainWindowNotLogged';
-import MainWindowLogged from './MainWindowLogged/MainWindowLogged';
+import MainWindowLogged from './MainWindowLogged';
 import "./MainWindow.css";
 
 const MainWindow = ({ onClose, toggleChatWindow }) => {

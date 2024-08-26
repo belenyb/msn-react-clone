@@ -1,5 +1,3 @@
-import './MainWindowLogged.css';
-
 const MainWindowLogged = ({ toggleChatWindow }) => {
   return (
     <div>

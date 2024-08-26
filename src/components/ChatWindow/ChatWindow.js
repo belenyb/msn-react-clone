@@ -1,4 +1,4 @@
-import { React, useState, useRef, useEffect } from 'react';
+import { React, useState, useRef, useEffect, process } from 'react';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import Draggable from "react-draggable";
 import Markdown from 'react-markdown';
@@ -25,7 +25,8 @@ function ChatWindow({ onClose }) {
   const [message, setMessage] = useState('');
 
   // Google AI Studio
-  const API_KEY = "AIzaSyAB1yTtnClkBGP8wP2iSxnmYDEj_Z0cTBg";
+  // const API_KEY = "AIzaSyAB1yTtnClkBGP8wP2iSxnmYDEj_Z0cTBg";
+  const API_KEY = process.env.REACT_APP_API_KEY;
   const genAI = new GoogleGenerativeAI(API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 

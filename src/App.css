@@ -47,7 +47,8 @@ button {
      height: 25px;
   }
   .send-button::after {
-    content: "\21B5"
+    content: "\21B5";
+    font-size: 12px;
   }
   .chat-buttons {
     align-items: center;

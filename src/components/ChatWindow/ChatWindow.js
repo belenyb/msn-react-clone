@@ -60,7 +60,8 @@ function ChatWindow({ onClose }) {
   }
 
   return (
-    <Draggable handle=".handle">
+    <Draggable
+      handle=".handle">
       <div className='chat-window position-relative' id="chatWindow">
         <div className="d-flex justify-content-between align-items-center handle px-2">
           <div className='d-flex align-items-center'>
@@ -83,7 +84,7 @@ function ChatWindow({ onClose }) {
             </svg>
           </div>
         </div>
-        <div className="d-flex gap-3 p-2 border border-1">
+        <div className="d-flex gap-3 p-2 border-1 border-top">
           <img role="button" src="./images/user-invite.png" alt="Icon" width="20" />
           <img role="button" src="./images/header-icons/folder.png" alt="Icon" width="20" />
           <img role="button" src="./images/music.png" alt="Icon" width="20" />
@@ -91,56 +92,68 @@ function ChatWindow({ onClose }) {
           <img role="button" src="./images/games.png" alt="Icon" width="20" />
           <img role="button" src="./images/user-blocked.png" alt="Icon" width="20" />
         </div>
-        <div className="mx-2 messages-block white-box d-flex flex-column pt-1 overflow-auto">
-          {chatHistory.map((chat, index) => (
-            <div key={index} className='mb-2 px-2'>
-              <p className='m-0 fw-bold message-user'> {chat.type === "bot" ? "Gemini says: " : "belenyb says: "} </p>
-              <p className={`m-0 message ${chat.type}`}> {chat.message} </p>
+        <div className="row g-0 mx-2">
+          <div className="col">
+            <div className="me-2 messages-block white-box d-flex flex-column pt-1 overflow-auto">
+              {chatHistory.map((chat, index) => (
+                <div key={index} className='mb-2 px-2'>
+                  <p className='m-0 fw-bold message-user'> {chat.type === "bot" ? "Gemini says: " : "belenyb says: "} </p>
+                  <p className={`m-0 message ${chat.type}`}> {chat.message} </p>
+                </div>
+              ))}
+              <div ref={messagesEndRef} />
             </div>
-          ))}
-          <div ref={messagesEndRef} />
-        </div>
-        <div className="d-flex justify-content-center mb-2">
-          <span className='fw-bolder'>. . . . . . . . </span>
-        </div>
-        <div className="white-box mx-2">
-          <div className="d-flex gap-2 chat-box-toolbar">
-            <div className='px-2 my-1 border-end'>
-              <div class="btn-group dropup">
-                <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="/images/emoticon.png" alt="Emoji" />
-                </button>
-                <ul class="dropdown-menu emojis-grid">
-                  {emojiList}
-                </ul>
+            <div className="d-flex justify-content-center mb-2">
+              <span className='fw-bolder'>. . . . . . . . </span>
+            </div>
+            <div className="white-box me-2">
+              <div className="d-flex gap-2 chat-box-toolbar">
+                <div className='px-2 my-1 border-end'>
+                  <div class="btn-group dropup">
+                    <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                      <img src="/images/emoticon.png" alt="Emoji" />
+                    </button>
+                    <ul class="dropdown-menu emojis-grid">
+                      {emojiList}
+                    </ul>
+                  </div>
+                  <img className='ps-2' src="/images/tilt.png" alt="Tilt icon" role='button' onClick={playTiltSound} />
+                </div>
+                <div className='d-flex align-items-center gap-2'>
+                  <img src="/images/bg.png" alt="icons" role='button' width="18" />
+                  <img src="/images/text.png" alt="icons" role='button' width="18" />
+                  <img src="/images/voice.png" alt="icons" role='button' width="18" />
+                </div>
               </div>
-              <img className='ps-2' src="/images/tilt.png" alt="Tilt icon" role='button' onClick={playTiltSound} />
-            </div>
-            <div className='d-flex align-items-center gap-2'>
-              <img src="/images/bg.png" alt="icons" role='button' width="18" />
-              <img src="/images/text.png" alt="icons" role='button' width="18" />
-              <img src="/images/voice.png" alt="icons" role='button' width="18" />
-            </div>
-          </div>
-          <div className="px-2 d-flex chat-box">
-            <textarea
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  askGemini();
-                }
-              }}
-              className='w-100 my-1'
-            ></textarea>
-            <div className="d-grid gap-1 ps-1 py-1">
-              <button onClick={askGemini} type='button'>Send</button>
-              <button type='button'>Search</button>
+              <div className="px-2 d-flex chat-box">
+                <textarea
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      askGemini();
+                    }
+                  }}
+                  className='w-100 my-1'
+                ></textarea>
+                <div className="d-grid gap-1 ps-1 py-1">
+                  <button onClick={askGemini} type='button'>Send</button>
+                  <button type='button'>Search</button>
+                </div>
+              </div>
+              <div className="chat-box-toolbar">
+                <p className='is-writing-label m-0'> {isLoading ? "Gemini is writing..." : "‎ "} </p>
+              </div>
             </div>
           </div>
-          <div className="chat-box-toolbar">
-            <p className='is-writing-label m-0'> {isLoading ? "Gemini is writing..." : "‎ "} </p>
+          <div className="col-auto d-flex flex-column justify-content-between">
+            <div className='p-2 bg-white'>
+              <img src="/images/gemini.png" alt="User profile" width="100" className="border border-2 border-white" />
+            </div>
+            <div className='p-2 bg-white'>
+              <img src="/images/user.png" alt="User profile" width="100" className="border border-2 border-white" />
+            </div>
           </div>
         </div>
         <div className='position-absolute bottom-0'>

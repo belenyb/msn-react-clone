@@ -29,9 +29,9 @@ function App() {
         </div>
       </div>
       {showLoginWindow && <MainWindow onClose={() => toggleLoginWindow(false)} toggleChatWindow={() => toggleChatWindow(true)} />}
-      <div>
-        {showChatWindow && <ChatWindow onClose={() => toggleChatWindow(false)} />}
-      </div>
+      {showChatWindow
+        ? (<ChatWindow onClose={() => toggleChatWindow(false)} />)
+        : <div style={{width: "500px",height: "550px;"}}></div>}
     </div>
   );
 }

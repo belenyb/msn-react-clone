@@ -17,7 +17,8 @@ const MainWindow = ({ onClose, toggleChatWindow }) => {
     setIsLoggedIn(value);
   }
   return (
-    <Draggable handle=".handle">
+    <Draggable
+    handle=".handle">
       <div className={`login-window p-2 position-relative ${isLoading && "isLoading"}`}>
         <WindowToolbar onClose={onClose} />
 

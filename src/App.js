@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MainWindow from './components/MainWindow/MainWindow';
 import ChatWindow from './components/ChatWindow/ChatWindow';
 import './App.css';
@@ -6,7 +6,7 @@ import './App.css';
 
 function App() {
   const [showLoginWindow, setShowLoginWindow] = useState(false);
-  const [showChatWindow, setShowChatWindow] = useState(false);
+  const [showChatWindow, setShowChatWindow] = useState(window.innerWidth < 768);
 
   function toggleLoginWindow(isVisible) {
     setShowLoginWindow(isVisible);

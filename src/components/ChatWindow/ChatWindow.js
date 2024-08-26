@@ -1,7 +1,8 @@
 import { React, useState, useRef, useEffect } from 'react';
-import Draggable from "react-draggable";
-import './ChatWindow.css';
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import Draggable from "react-draggable";
+import Markdown from 'react-markdown';
+import './ChatWindow.css';
 
 function ChatWindow({ onClose }) {
   const emojiList = Array.from({ length: 32 }, (_, index) => (
@@ -43,18 +44,20 @@ function ChatWindow({ onClose }) {
     setIsLoading(true);
     try {
       const prompt = message;
+      const userMessage = { type: "user", message: prompt };
+
+      setChatHistory(prevChatHistory => [...prevChatHistory, userMessage]);
+      setMessage('');
+
       const result = await model.generateContent(prompt);
       const response = await result.response;
       const text = response.text();
-      setChatHistory(prevChatHistory => [
-        ...prevChatHistory,
-        { type: "user", message: prompt },
-        { type: "bot", message: text }
-      ]);
+      const botMessage = { type: "bot", message: text };
+
+      setChatHistory(prevChatHistory => [...prevChatHistory, botMessage]);
     } catch (error) {
       console.log(error);
     } finally {
-      setMessage('');
       setIsLoading(false);
     }
   }
@@ -95,10 +98,13 @@ function ChatWindow({ onClose }) {
         <div className="row g-0 mx-2">
           <div className="col">
             <div className="me-2 messages-block white-box d-flex flex-column pt-1 overflow-auto">
+
               {chatHistory.map((chat, index) => (
                 <div key={index} className='mb-2 px-2'>
                   <p className='m-0 fw-bold message-user'> {chat.type === "bot" ? "Gemini says: " : "belenyb says: "} </p>
-                  <p className={`m-0 message ${chat.type}`}> {chat.message} </p>
+                  <p className={`m-0 message ${chat.type}`}>
+                    <Markdown className="mb-0">{chat.message}</Markdown>
+                  </p>
                 </div>
               ))}
               <div ref={messagesEndRef} />
@@ -137,9 +143,9 @@ function ChatWindow({ onClose }) {
                   }}
                   className='w-100 my-1'
                 ></textarea>
-                <div className="d-grid gap-1 ps-1 py-1">
-                  <button onClick={askGemini} type='button'>Send</button>
-                  <button type='button'>Search</button>
+                <div className="d-grid gap-1 ps-1 py-1 chat-buttons">
+                  <button onClick={askGemini} type='button' className='send-button'></button>
+                  <button type='button' className='search-button'>Search</button>
                 </div>
               </div>
               <div className="chat-box-toolbar">
@@ -148,11 +154,11 @@ function ChatWindow({ onClose }) {
             </div>
           </div>
           <div className="col-auto d-flex flex-column justify-content-between">
-            <div className='p-2 bg-white'>
-              <img src="/images/gemini.png" alt="User profile" width="100" className="border border-2 border-white" />
+            <div className='p-lg-2 p-1 bg-white'>
+              <img src="/images/gemini.png" alt="User profile" width="100" className="user-profile-pic border border-2 border-white" />
             </div>
-            <div className='p-2 bg-white'>
-              <img src="/images/user.png" alt="User profile" width="100" className="border border-2 border-white" />
+            <div className='p-lg-2 p-1 bg-white'>
+              <img src="/images/user.png" alt="User profile" width="100" className="user-profile-pic border border-2 border-white" />
             </div>
           </div>
         </div>

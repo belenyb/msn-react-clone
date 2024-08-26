@@ -7,6 +7,10 @@
   background-size: cover;
 }
 
+.send-button::after {
+  content: "Send";
+}
+
 .chat-window span {
   font-size: 12px;
 }
@@ -54,6 +58,10 @@ textarea {
   padding-inline: 8px;
   border-radius: 5px;
   font-size: 12px;
+}
+
+.message p {
+  margin-bottom: 0;
 }
 
 .message.user {

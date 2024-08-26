@@ -32,3 +32,24 @@ button {
   box-shadow: inset 0px -1px #8d8d8d;
   font-size: 12px;
 }
+
+@media (max-width: 768px) {
+  .chat-window {
+    margin-inline: 10px;
+  }
+  .user-profile-pic {
+    width: 65px;
+  }
+  .login-window, .search-button {
+    display: none;
+  }
+  .send-button{
+     height: 25px;
+  }
+  .send-button::after {
+    content: "\21B5"
+  }
+  .chat-buttons {
+    align-items: center;
+  }
+}

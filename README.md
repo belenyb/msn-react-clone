@@ -2,6 +2,8 @@
 ## Project Overview
 This project aims to recreate the classic MSN Windows Live Messenger experience, leveraging Gemini 1.5 Flash for real-time text-based conversations. The app will feature a user-friendly interface, allowing users to chat with Gemini in a conversational style.
 
+<img src="assets/msn-react-clone-demo.gif" width=auto height=300 alt="App demo" />
+
 ## Dependencies and Setup
 The package.json file lists the necessary dependencies for the project:
 

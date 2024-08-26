@@ -52,4 +52,8 @@ button {
   .chat-buttons {
     align-items: center;
   }
+  .separator > span {
+    line-height: 10px;
+    margin-bottom: 5px;
+  }
 }

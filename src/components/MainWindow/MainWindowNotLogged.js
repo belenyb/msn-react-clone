@@ -13,7 +13,7 @@ const MainWindowNotLogged = ({handleClick}) => {
             </div>
             <div className="mb-2 d-flex flex-column">
               <label htmlFor="passwordInput">Password:</label>
-              <input type="password" className="border border-secondary" id="passwordInput" placeholder="" />
+              <input type="password" className="border border-secondary" id="passwordInput" placeholder="" autoComplete="on" />
             </div>
             <div className="d-flex gap-1">
               <label htmlFor="statusInput">Status:</label>

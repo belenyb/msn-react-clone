@@ -102,24 +102,24 @@ function ChatWindow({ onClose }) {
               {chatHistory.map((chat, index) => (
                 <div key={index} className='mb-2 px-2'>
                   <p className='m-0 fw-bold message-user'> {chat.type === "bot" ? "Gemini says: " : "belenyb says: "} </p>
-                  <p className={`m-0 message ${chat.type}`}>
+                  <div className={`m-0 message ${chat.type}`}>
                     <Markdown className="mb-0">{chat.message}</Markdown>
-                  </p>
+                  </div>
                 </div>
               ))}
               <div ref={messagesEndRef} />
             </div>
-            <div className="d-flex justify-content-center mb-2">
+            <div className="d-flex justify-content-center mb-0 mb-lg-2 separator">
               <span className='fw-bolder'>. . . . . . . . </span>
             </div>
             <div className="white-box me-2">
               <div className="d-flex gap-2 chat-box-toolbar">
                 <div className='px-2 my-1 border-end'>
-                  <div class="btn-group dropup">
-                    <button type="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div className="btn-group dropup">
+                    <button type="button" className="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                       <img src="/images/emoticon.png" alt="Emoji" />
                     </button>
-                    <ul class="dropdown-menu emojis-grid">
+                    <ul className="dropdown-menu emojis-grid">
                       {emojiList}
                     </ul>
                   </div>

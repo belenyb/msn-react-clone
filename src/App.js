@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import MainWindow from './components/MainWindow/MainWindow';
 import ChatWindow from './components/ChatWindow/ChatWindow';
 import './App.css';
@@ -31,7 +31,7 @@ function App() {
       {showLoginWindow && <MainWindow onClose={() => toggleLoginWindow(false)} toggleChatWindow={() => toggleChatWindow(true)} />}
       {showChatWindow
         ? (<ChatWindow onClose={() => toggleChatWindow(false)} />)
-        : <div style={{width: "500px",height: "550px;"}}></div>}
+        : <div style={{width: "500px",height: "550px"}}></div>}
     </div>
   );
 }

@@ -13,10 +13,10 @@ const MainWindowLogged = ({ toggleChatWindow }) => {
               <span className='fw-bold'>belenyb</span>
               <span>&lt;Enter a personal message&gt;</span>
               <div className="d-flex gap-3 pt-1 justify-content-center">
-                <img src="./images/header-icons/mail.png" alt="Icon" width="20" />
-                <img src="./images/header-icons/folder.png" alt="Icon" width="20" />
-                <img src="./images/music.png" alt="Icon" width="20" />
-                <img src="./images/header-icons/phone.png" alt="Icon" width="20" />
+                <img src="./images/msn-icons/mail.png" alt="Icon" width="20" />
+                <img src="./images/msn-icons/folder.png" alt="Icon" width="20" />
+                <img src="./images/msn-icons/music.png" alt="Icon" width="20" />
+                <img src="./images/msn-icons/phone.png" alt="Icon" width="20" />
                 <img src="./images/footer-icon.png" alt="Icon" width="20" />
               </div>
             </div>
@@ -29,42 +29,42 @@ const MainWindowLogged = ({ toggleChatWindow }) => {
                 <input type="search" className='w-100' name="" id="" placeholder="Find a contact or number..." />
               </div>
               <div className="col-auto px-2" role='button'>
-                <img src="/images/user-add.png" alt="Add user" />
+                <img src="/images/user/user-add.png" alt="Add user" />
               </div>
               <div className="col-auto" role='button'>
-                <img src="/images/sort-contacts.png" alt="Sort contacts" />
+                <img src="/images/msn-icons/sort-contacts.png" alt="Sort contacts" />
               </div>
             </div>
             <hr className='mt-2 mb-1' />
             <div className="d-flex gap-2">
-              <img src="/images/info.png" alt="Info icon" width={16} />
+              <img src="/images/msn-icons/info.png" alt="Info icon" width={16} />
               <span className="text-primary text-decoration-underline" role='button'>You have 35 pending requests</span>
             </div>
             <hr className='my-1' />
             <details open>
               <summary className='fw-bold'>Online (5)</summary>
               <div className="d-flex gap-1" role="button" onDoubleClick={toggleChatWindow}>
-                <img src="/images/user-online.png" alt="User icon" width={16} />
+                <img src="/images/user/user-online.png" alt="User icon" width={16} />
                 <span>Gemini - <span className='text-secondary'>Ask me anything</span></span>
               </div>
               <div className="d-flex gap-1" role="button">
-                <img src="/images/user-online.png" alt="User icon" width={16} />
+                <img src="/images/user/user-online.png" alt="User icon" width={16} />
                 <span>Oº°‘¨PanchitO¨‘°ºO - <span className='text-secondary'>Music for life <img src="/images/emojis/29.png" alt="Music icon" width={10} /></span></span>
               </div>
               <div className="d-flex gap-1" role="button">
-                <img src="/images/user-away.png" alt="User icon" width={16} />
+                <img src="/images/user/user-away.png" alt="User icon" width={16} />
                 <span>July07 - <span className='text-secondary'>AFK</span></span>
               </div>
               <div className="d-flex gap-1" role="button">
-                <img src="/images/user-online.png" alt="User icon" width={16} />
+                <img src="/images/user/user-online.png" alt="User icon" width={16} />
                 <span>Marina - <span className='text-secondary'>ι ∂σи-т ωαииα мιѕѕ α тнιиg</span></span>
               </div>
               <div className="d-flex gap-1" role="button">
-                <img src="/images/user-online.png" alt="User icon" width={16} />
+                <img src="/images/user/user-online.png" alt="User icon" width={16} />
                 <span>MKZ_00 - <span className='text-secondary'>Boreeeed <img src="/images/emojis/22.png" alt="Music icon" width={10} /></span></span>
               </div>
               <div className="d-flex gap-1" role="button">
-                <img src="/images/user-blocked.png" alt="User icon" width={16} />
+                <img src="/images/user/user-blocked.png" alt="User icon" width={16} />
                 <span>Ernesto <span className='text-secondary'></span></span>
               </div>
             </details>
@@ -72,11 +72,11 @@ const MainWindowLogged = ({ toggleChatWindow }) => {
             <details open>
               <summary className='fw-bold'>Offline (2)</summary>
               <div className="d-flex gap-1" role="button">
-                <img src="/images/user-invisible.png" alt="User icon" width={16} />
+                <img src="/images/user/user-invisible.png" alt="User icon" width={16} />
                 <span>Max - <span className='text-secondary'>Too cool for school</span></span>
               </div>
               <div className="d-flex gap-1" role="button">
-                <img src="/images/user-invisible.png" alt="User icon" width={16} />
+                <img src="/images/user/user-invisible.png" alt="User icon" width={16} />
                 <span>(¯`·._.·[007-ban]·._.·´¯) - <span className='text-secondary'>No worries</span></span>
               </div>
             </details>

@@ -68,7 +68,7 @@ function ChatWindow({ onClose }) {
       <div className='chat-window position-relative' id="chatWindow">
         <div className="d-flex justify-content-between align-items-center handle px-2">
           <div className='d-flex align-items-center'>
-            <img src="/images/user-online.png" alt="Online user icon" width="35" className="p-1" />
+            <img src="/images/user/user-online.png" alt="Online user icon" width="35" className="p-1" />
             <div className='d-grid'>
               <span className="ps-1 fw-bold lh-1">Gemini</span>
               <span className="ps-1 lh-1">Ask me anything</span>
@@ -88,12 +88,12 @@ function ChatWindow({ onClose }) {
           </div>
         </div>
         <div className="d-flex gap-3 p-2 border-1 border-top">
-          <img role="button" src="./images/user-invite.png" alt="Icon" width="20" />
-          <img role="button" src="./images/header-icons/folder.png" alt="Icon" width="20" />
-          <img role="button" src="./images/music.png" alt="Icon" width="20" />
-          <img role="button" src="./images/header-icons/phone.png" alt="Icon" width="20" />
-          <img role="button" src="./images/games.png" alt="Icon" width="20" />
-          <img role="button" src="./images/user-blocked.png" alt="Icon" width="20" />
+          <img role="button" src="./images/user/user-invite.png" alt="Icon" width="20" />
+          <img role="button" src="./images/msn-icons/folder.png" alt="Icon" width="20" />
+          <img role="button" src="./images/msn-icons/music.png" alt="Icon" width="20" />
+          <img role="button" src="./images/msn-icons/phone.png" alt="Icon" width="20" />
+          <img role="button" src="./images/msn-icons/games.png" alt="Icon" width="20" />
+          <img role="button" src="./images/user/user-blocked.png" alt="Icon" width="20" />
         </div>
         <div className="row g-0 mx-2">
           <div className="col">
@@ -117,7 +117,7 @@ function ChatWindow({ onClose }) {
                 <div className='px-2 my-1 border-end'>
                   <div className="btn-group dropup">
                     <button type="button" className="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                      <img src="/images/emoticon.png" alt="Emoji" />
+                      <img src="/images/msn-icons/emoticon.png" alt="Emoji" />
                     </button>
                     <ul className="dropdown-menu emojis-grid">
                       {emojiList}
@@ -127,8 +127,8 @@ function ChatWindow({ onClose }) {
                 </div>
                 <div className='d-flex align-items-center gap-2'>
                   <img src="/images/bg.png" alt="icons" role='button' width="18" />
-                  <img src="/images/text.png" alt="icons" role='button' width="18" />
-                  <img src="/images/voice.png" alt="icons" role='button' width="18" />
+                  <img src="/images/msn-icons/text.png" alt="icons" role='button' width="18" />
+                  <img src="/images/msn-icons/voice.png" alt="icons" role='button' width="18" />
                 </div>
               </div>
               <div className="px-2 d-flex chat-box">

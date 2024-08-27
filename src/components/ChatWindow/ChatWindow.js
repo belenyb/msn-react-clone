@@ -1,4 +1,4 @@
-import { React, useState, useRef, useEffect, process } from 'react';
+import { React, useState, useRef, useEffect } from 'react';
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import Draggable from "react-draggable";
 import Markdown from 'react-markdown';
@@ -25,35 +25,35 @@ function ChatWindow({ onClose }) {
   const [message, setMessage] = useState('');
 
   // Google AI Studio
-  // const API_KEY = "AIzaSyAB1yTtnClkBGP8wP2iSxnmYDEj_Z0cTBg";
   const API_KEY = process.env.REACT_APP_API_KEY;
   const genAI = new GoogleGenerativeAI(API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const chat = model.startChat({ history: chatHistory });
 
   // Scroll to bottom after render
-  const messagesEndRef = useRef(null)
+  const messagesEndRef = useRef(null);
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
-  }
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
-    scrollToBottom()
+    scrollToBottom();
   }, [chatHistory]);
 
   async function askGemini() {
     setIsLoading(true);
     try {
-      const prompt = message;
-      const userMessage = { type: "user", message: prompt };
+      const userMessage = { role: "user", parts: [{ text: message }] };
 
       setChatHistory(prevChatHistory => [...prevChatHistory, userMessage]);
       setMessage('');
 
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
-      const botMessage = { type: "bot", message: text };
+      const result = await chat.sendMessage(message);
+      const botMessage = {
+        role: "model",
+        parts: [{ text: await result.response.text() }]
+      };
 
       setChatHistory(prevChatHistory => [...prevChatHistory, botMessage]);
     } catch (error) {
@@ -64,8 +64,7 @@ function ChatWindow({ onClose }) {
   }
 
   return (
-    <Draggable
-      handle=".handle">
+    <Draggable handle=".handle">
       <div className='chat-window position-relative' id="chatWindow">
         <div className="d-flex justify-content-between align-items-center handle px-2">
           <div className='d-flex align-items-center'>
@@ -99,12 +98,11 @@ function ChatWindow({ onClose }) {
         <div className="row g-0 mx-2">
           <div className="col">
             <div className="me-2 messages-block white-box d-flex flex-column pt-1 overflow-auto">
-
               {chatHistory.map((chat, index) => (
                 <div key={index} className='mb-2 px-2'>
-                  <p className='m-0 fw-bold message-user'> {chat.type === "bot" ? "Gemini says: " : "belenyb says: "} </p>
-                  <div className={`m-0 message ${chat.type}`}>
-                    <Markdown className="mb-0">{chat.message}</Markdown>
+                  <p className='m-0 fw-bold message-user'>{chat.role === "model" ? "Gemini says: " : "belenyb says: "}</p>
+                  <div className={`m-0 message ${chat.role}`}>
+                    <Markdown className="mb-0">{chat.parts[0].text}</Markdown>
                   </div>
                 </div>
               ))}
@@ -150,7 +148,7 @@ function ChatWindow({ onClose }) {
                 </div>
               </div>
               <div className="chat-box-toolbar">
-                <p className='is-writing-label m-0'> {isLoading ? "Gemini is writing..." : "‎ "} </p>
+                <p className='is-writing-label m-0'>{isLoading ? "Gemini is writing..." : "‎ "}</p>
               </div>
             </div>
           </div>

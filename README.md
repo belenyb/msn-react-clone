@@ -1,10 +1,37 @@
 # MSN Windows Live Messenger Clone with Gemini 1.5 Flash
 ## Project Overview
-This project aims to recreate the classic MSN Windows Live Messenger experience, leveraging Gemini 1.5 Flash for real-time text-based conversations. The app will feature a user-friendly interface, allowing users to chat with Gemini in a conversational style.
+MSN React Clone is a web application that replicates the classic Windows Live Messenger experience, providing an interactive chat interface with the Gemini 1.5 Flash model. Leveraging React and Bootstrap, this app offers a modern take on a nostalgic chat application.
 
 <img src="assets/msn-react-clone-demo.gif" width=auto height=300 alt="App demo" />
 
-## Dependencies and Setup
+## Setup
+### Prerequisites
+Ensure you have the following installed:
+```console
+Node.js (v14.x, v16.x, or v18.x recommended)
+npm (Node package manager)
+```
+Update the REACT_APP_API_KEY in your .env file to use the [Gemini 1.5 Flash API](https://aistudio.google.com/app/apikey):
+```console
+REACT_APP_API_KEY=your_api_key_here
+```
+
+### Installation
+Clone the repository:
+```console
+git clone https://github.com/belenyb/msn-react-clone.git
+cd msn-react-clone
+```
+Install dependencies:
+```console
+npm install
+```
+Running the App
+```console
+npm start
+```
+
+## Dependencies
 The package.json file lists the necessary dependencies for the project:
 
 - @google/generative-ai: For interacting with Gemini 1.5 Flash.
@@ -16,7 +43,7 @@ The package.json file lists the necessary dependencies for the project:
 - web-vitals: For measuring web performance metrics.
 
 ## Gemini integration
-The app leverages Gemini 1.5 Flash, a large language model developed by Google AI, to generate contextually relevant and coherent responses to user inputs. Integration is achieved through the Google AI Studio API, enabling the application to send queries to the model and receive responses in real-time.
+To create an interactive chat experience, the Gemini API is used to handle multi-round conversations. The API allows for progressive user interactions and is suitable for chatbots, interactive tutors, and customer support.
 
 ## Vercel deployment
 Live demo here 👉 https://msn-react-clone.vercel.app

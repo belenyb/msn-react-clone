@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.windows-app-icons > div:hover {
+.windows-app-icons>div:hover {
   cursor: pointer;
   background-color: #dddddd5e;
   border-radius: 6px;
@@ -37,24 +37,59 @@ button {
   .chat-window {
     margin-inline: 10px;
   }
+
   .user-profile-pic {
     width: 65px;
   }
-  .login-window, .search-button {
+
+  .login-window,
+  .search-button {
     display: none;
   }
-  .send-button{
-     height: 25px;
+
+  .send-button {
+    height: 25px;
   }
+
   .send-button::after {
     content: "\21B5";
     font-size: 12px;
   }
+
   .chat-buttons {
     align-items: center;
   }
-  .separator > span {
+
+  .separator>span {
     line-height: 10px;
     margin-bottom: 5px;
+  }
+
+  pre,
+  code {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-x: auto;
+    max-width: 100%;
+  }
+
+  code {
+    display: block;
+    font-size: calc(0.8em + 0.2vw);
+  }
+}
+
+@media (max-width: 375px) {
+  .messages-block-row .col {
+    width: 75%;
+  }
+
+  .messages-block-row .col-auto {
+    width: 20%;
+  }
+
+  .user-profile-pic {
+    max-width: 65px;
+    width: 100%;
   }
 }

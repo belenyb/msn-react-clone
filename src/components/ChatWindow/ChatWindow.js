@@ -95,7 +95,7 @@ function ChatWindow({ onClose }) {
           <img role="button" src="./images/msn-icons/games.png" alt="Icon" width="20" />
           <img role="button" src="./images/user/user-blocked.png" alt="Icon" width="20" />
         </div>
-        <div className="row g-0 mx-2">
+        <div className="row g-0 mx-2 messages-block-row">
           <div className="col">
             <div className="me-2 messages-block white-box d-flex flex-column pt-1 overflow-auto">
               {chatHistory.map((chat, index) => (

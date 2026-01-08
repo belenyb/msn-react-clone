@@ -27,7 +27,7 @@ function ChatWindow({ onClose }) {
   // Google AI Studio
   const API_KEY = process.env.REACT_APP_API_KEY;
   const genAI = new GoogleGenerativeAI(API_KEY);
-  const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
   const chat = model.startChat({ history: chatHistory });
 
   // Scroll to bottom after render
